@@ -5,11 +5,24 @@
     </head>
         <body>
           <script> 
-            (function(){
-              if(!navigator.useragent.match(/mobile/1)){
-                     window.location = "404.html"
-              }
-              })();
+            var system={
+                win:false
+                mac:false
+                xll:false
+                ipad:false
+            };
+          var p =navigator.platform;
+          system.win = p.indexof("win")=0;
+          system.win = p.indexof("mac")=0;
+          system.win = (p =="x11") || (p.indexof("linux") ==0);
+          system.win = (navigator.useragent.match(/ipad/i) !=null)ture:false
+          
+          if(system.win || system.mac || system.xll||system.ipad){
+          }else{
+              
+              window.location = "222.html";
+          }
+              
           </script>
         </body>
 </html>
