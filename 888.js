@@ -1,22 +1,16 @@
          <script type ="text/javascript">
-  <!--       
-            var system = {
-                win: false,
-                mac: false,
-                xll: false,
-                ipad: false
-          };
+                  
+function isMobile(){
+  return (
+    (navigator.userAgent.match(/Android/i)) ||
+    (navigator.userAgent.match(/webOS/i)) ||
+    (navigator.userAgent.match(/iPhone/i)) ||
+    (navigator.userAgent.match(/iPod/i)) ||
+    (navigator.userAgent.match(/iPad/i)) ||
+    (navigator.userAgent.match(/BlackBerry/))
+  );
+}
 
-          var p = navigator.platform;
-          system.win = p.indexOf("win") == 0;
-          system.mac = p.indexOf("mac") == 0;
-          system.xll = (p == "x11") || (p.indexOf("Linux") == 0);
-          system.ipad = (navigator.userAgent.match(/ipad/i) != null)?true:false;
-          
-          if(system.win || system.mac || system.xll || system.ipad) {
-                   
-          } else {
-               window.location.href = "https://www.google.com.tw/";
-          }
--->
-          </script>
+if(!isMobile()) {
+window.location = "222.html"               
+}
