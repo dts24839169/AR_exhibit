@@ -16,7 +16,7 @@
           if(system.win || system.mac || system.xll || system.ipad) {
                    
           } else {
-               window.location.href = "http://google.com";
+               window.location.href = "https://www.google.com.tw/";
           }
 -->
           </script>
