@@ -12,7 +12,7 @@ function isMobile(){
 }
 
 if(!isMobile()) {
-window.location = "222.html
+window.location = "222.html"
 }
 
 </script>
