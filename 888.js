@@ -1,5 +1,5 @@
          <script type ="text/javascript">
-         
+  <!--       
           <script> 
             var system={
                 win:false,
@@ -17,4 +17,5 @@
           } else {
                window.location = "222.html";
           }
+-->
           </script>
