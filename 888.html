@@ -12,15 +12,14 @@
                 ipad:false
             };
           var p =navigator.platform;
-          system.win = p.indexof("win")=0;
-          system.win = p.indexof("mac")=0;
-          system.win = (p =="x11") || (p.indexof("linux") ==0);
-          system.win = (navigator.useragent.match(/ipad/i) !=null)ture:false
+          system.win = p.indexof("win")== 0;
+          system.mac = p.indexof("mac")== 0;
+          system.xll = (p == "x11") || (p.indexof("linux") == 0);
+          system.ipad = (navigator.useragent.match(/ipad/i) !=null)?ture:false;
           
           if(system.win || system.mac || system.xll||system.ipad){
-          }else{
-              
-              window.location = "222.html";
+          } else {
+               window.location = "222.html";
           }
               
           </script>
