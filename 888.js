@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-      <script type ="text/javascript">
-    </head>
-        <body>
+         <script type ="text/javascript">
+         
           <script> 
             var system={
                 win:false,
@@ -21,7 +17,4 @@
           } else {
                window.location = "222.html";
           }
-              
           </script>
-        </body>
-</html>
