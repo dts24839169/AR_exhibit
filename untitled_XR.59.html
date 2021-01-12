@@ -59,8 +59,7 @@
                position:absolute;
                left:0;right:0;top:50%;
                margin:auto;
-               transform:translateY(-50%);
-               z-index:7          
+               transform:translateY(-50%);        
                }
 
               .loading span {
@@ -89,7 +88,7 @@
                 50%  {transform:translateX(170px);}
                 100% {transform:translateX(-170px);}
                 }
-
+                .pos{z-index:10;}
      </style>
 </head>
      
@@ -97,10 +96,12 @@
                <div id="KeyShotXR"></div>
        
      <div class="loading">
+     <div class="pos">     
                <a rel="ar" href="111.usdz">
                <img src="APPLE AR-02.png" width=500px style="display:inline";>
                </a>
-     </div>             
+     </div>
+     </div>
 </body>
      
 </html>
