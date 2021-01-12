@@ -95,6 +95,12 @@
                  z-index:-10;          
                 }
      </style>
+     <style>    
+           html{
+           overflow-x:hidden;
+           overflow-y:hidden;}
+     </style>    
+           
 </head>
      
 <body oncontextmenu="return false;">
@@ -106,6 +112,10 @@
                <img src="APPLE AR-03.png" width=330px style="display:inline";>
                </a>
      </div>      
-</body>
-     
+</body>   
 </html>
+
+<script>  
+//禁止滾動條
+      $(document.body).toggleClass("html-body-overflow");
+</script>  
