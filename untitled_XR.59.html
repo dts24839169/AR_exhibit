@@ -31,15 +31,15 @@
                var vMouseSensitivity = 0.04375;
                var uStartIndex = 9;
                var vStartIndex = 0;
-               var minZoom = 1.4;
-               var maxZoom = 3.3;
-               var rotationDamping = 0.95;
+               var minZoom = 1.2;
+               var maxZoom = 2;
+               var rotationDamping = 0.96;
                var downScaleToBrowser = true;
                var addDownScaleGUIButton = false;
                var downloadOnInteraction = true;
                var imageExtension = "png";
-               var showLoading = false;
-               var loadingIcon = "DTS LOGO-02.png"; // Set to empty string for default icon.
+               var showLoading = true;
+               var loadingIcon = "loading.png"; // Set to empty string for default icon.
                var allowFullscreen = true; // Double-click in desktop browsers for fullscreen.
                var uReverse = false;
                var vReverse = false;
@@ -73,7 +73,7 @@
                .loading:after {
                 content:'';
                 background:#f3efe8;
-                width:10px;
+                width:8px;
                 height:100px;
                 display:inline;
                 position:absolute;
@@ -117,7 +117,7 @@
      <div class="loading"></div>
      <div class="pos">     
                <a rel="ar" href="111.usdz">
-               <img src="APPLE AR-03.png" width=330px style="display:block";>
+               <img src="APPLE AR-04.png" width=330px style="display:block";>
                </a>
      </div>
      <div class="copyright">
