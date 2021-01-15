@@ -1,0 +1,415 @@
+{
+    "asset": {
+        "copyright": "2020 (c) Adobe Inc.",
+        "generator": "Adobe Dimension - 611127eacd250f22943d21b3c2c9dbaa3a0ef9a2",
+        "version": "2.0"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 62628,
+            "type": "VEC3",
+            "max": [
+                0.8051435947418213,
+                0.8028049468994141,
+                0.0139999995008111
+            ],
+            "min": [
+                -0.8051435947418213,
+                -0.8028049468994141,
+                -0.08100000023841858
+            ]
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 62628,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 62628,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5125,
+            "count": 62628,
+            "type": "SCALAR",
+            "max": [
+                62627.0
+            ],
+            "min": [
+                0.0
+            ]
+        },
+        {
+            "bufferView": 4,
+            "componentType": 5126,
+            "count": 1176,
+            "type": "VEC3",
+            "max": [
+                0.7632969617843628,
+                0.7395862340927124,
+                0.009499999694526196
+            ],
+            "min": [
+                -0.7632969617843628,
+                -0.7395862340927124,
+                -0.009499999694526196
+            ]
+        },
+        {
+            "bufferView": 5,
+            "componentType": 5126,
+            "count": 1176,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 6,
+            "componentType": 5126,
+            "count": 1176,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 7,
+            "componentType": 5125,
+            "count": 1176,
+            "type": "SCALAR",
+            "max": [
+                1175.0
+            ],
+            "min": [
+                0.0
+            ]
+        },
+        {
+            "bufferView": 8,
+            "componentType": 5126,
+            "count": 192,
+            "type": "VEC3",
+            "max": [
+                0.6944872140884399,
+                0.6696973443031311,
+                0.009499999694526196
+            ],
+            "min": [
+                -0.6944872140884399,
+                -0.6696973443031311,
+                -0.009499999694526196
+            ]
+        },
+        {
+            "bufferView": 9,
+            "componentType": 5126,
+            "count": 192,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 10,
+            "componentType": 5126,
+            "count": 192,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 11,
+            "componentType": 5125,
+            "count": 192,
+            "type": "SCALAR",
+            "max": [
+                191.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 751536,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 751536,
+            "byteLength": 751536,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 1503072,
+            "byteLength": 501024,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2004096,
+            "byteLength": 250512,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2254608,
+            "byteLength": 14112,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2268720,
+            "byteLength": 14112,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2282832,
+            "byteLength": 9408,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2292240,
+            "byteLength": 4704,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2296944,
+            "byteLength": 2304,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2299248,
+            "byteLength": 2304,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2301552,
+            "byteLength": 1536,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2303088,
+            "byteLength": 768,
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 2303856,
+            "uri": "GCW-BS-1_binary.bin"
+        }
+    ],
+    "cameras": [
+        {
+            "perspective": {
+                "znear": 0.000010000000656873454,
+                "yfov": 0.6024156808853149,
+                "zfar": 2.0,
+                "aspectRatio": 1.3333333730697632
+            },
+            "type": "perspective",
+            "name": "render_camera"
+        }
+    ],
+    "images": [
+        {
+            "name": "Metallic_Black_Color",
+            "uri": "GCW-BS-1_images\\Metallic_Black_Color.jpg",
+            "mimeType": "image/jpeg"
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.30151134729385378
+            },
+            "name": "Metal Rough Black",
+            "doubleSided": true
+        }
+    ],
+    "meshes": [
+        {
+            "name": "GCW-BS-6.25-38T-K01-20200615",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        },
+        {
+            "name": "GCW-BS-6.25-38T-K01-20200615 2",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 5,
+                        "POSITION": 4,
+                        "TEXCOORD_0": 6
+                    },
+                    "indices": 7,
+                    "material": 0
+                }
+            ]
+        },
+        {
+            "name": "GCW-BS-6.25-38T-K01-20200615 3",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 8,
+                        "NORMAL": 9,
+                        "TEXCOORD_0": 10
+                    },
+                    "indices": 11,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "translation": [
+                0.5,
+                0.29999998211860659,
+                0.5
+            ],
+            "rotation": [
+                -0.12059047073125839,
+                0.379409521818161,
+                0.04995020851492882,
+                0.9159756302833557
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                0.9999999403953552
+            ],
+            "camera": 0,
+            "name": "render_camera_n3d"
+        },
+        {
+            "children": [
+                2,
+                3,
+                4
+            ],
+            "name": "GCW-BS-1"
+        },
+        {
+            "translation": [
+                0.26600900292396548,
+                0.13473699986934663,
+                -0.3590499758720398
+            ],
+            "rotation": [
+                -0.05415070056915283,
+                0.8853564262390137,
+                0.02818877622485161,
+                -0.4608873128890991
+            ],
+            "scale": [
+                0.10000000149011612,
+                0.09999999403953552,
+                0.10000000149011612
+            ],
+            "name": "Active Camera"
+        },
+        {
+            "translation": [
+                0.26600900292396548,
+                0.13473699986934663,
+                -0.3590499758720398
+            ],
+            "rotation": [
+                -0.05415070056915283,
+                0.8853564262390137,
+                0.02818877622485161,
+                -0.4608873128890991
+            ],
+            "scale": [
+                0.10000000149011612,
+                0.09999999403953552,
+                0.10000000149011612
+            ],
+            "name": "相機 1"
+        },
+        {
+            "children": [
+                5
+            ],
+            "scale": [
+                0.10000000149011612,
+                0.10000000149011612,
+                0.10000000149011612
+            ],
+            "name": "Default"
+        },
+        {
+            "children": [
+                6
+            ],
+            "translation": [
+                0.0,
+                0.8028050065040588,
+                0.03349999710917473
+            ],
+            "name": "GCW-BS-6.25-38T-K01-20200615"
+        },
+        {
+            "children": [
+                7,
+                8,
+                9
+            ],
+            "name": "GCW-BS-6.25-38T-K01-20200615"
+        },
+        {
+            "mesh": 0,
+            "name": "GCW-BS-6.25-38T-K01-20200615"
+        },
+        {
+            "mesh": 1,
+            "name": "GCW-BS-6.25-38T-K01-20200615 2"
+        },
+        {
+            "mesh": 2,
+            "name": "GCW-BS-6.25-38T-K01-20200615 3"
+        }
+    ],
+    "samplers": [
+        {}
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0,
+                1
+            ],
+            "name": "scene"
+        }
+    ],
+    "textures": [
+        {
+            "name": "Metal Rough Black::baseColor::image",
+            "sampler": 0,
+            "source": 0
+        }
+    ],
+    "scene": 0
+}
