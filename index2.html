@@ -23,14 +23,10 @@
          //location.href = 'googlechrome://navigate?url=dts24839169.github.io/wapaul-1/222.html';
          //window.location. = 'googlechrome://navigate?url=dts24839169.github.io/wapaul-1/222.html';
          //document.location ='googlechrome：// navigate？url = dts24839169.github.io/wapaul-1/222.html';
-         void open(Activity activity, String url) {
-              Uri uri = Uri.parse('googlechrome://navigate?url=dts24839169.github.io/wapaul-1/222.html');
-              Intent i = new Intent(Intent.ACTION_VIEW, uri);
-              if (i.resolveActivity(activity.getPackageManager()) == null) {
-              i.setData(Uri.parse(url));
-         }
-              activity.startActivity(i);
-}  
+Intent intent = new Intent(Intent.ACTION_VIEW);
+intent.setData(Uri.parse("http://dts24839169.github.io/wapaul-1/222.html"));
+intent.setPackage("com.cloudacl");  // package of SafeBrowser App 
+startActivity(intent);
            
     }else {
          location.href = 'googlechrome://dts24839169.github.io/wapaul-1/222.html';
