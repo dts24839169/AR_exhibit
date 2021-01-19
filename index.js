@@ -1,4 +1,5 @@
-<DOCTYPE = javascript>
+<!DOCTYPE  javascript>
+<javascript lang="en">  
   
 <script>
   (function() {
