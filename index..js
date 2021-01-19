@@ -1,4 +1,4 @@
-<DOCTYPE javascript>
+<!DOCTYPE javascript>
 <javascript lang=EN>
 <script>
   
