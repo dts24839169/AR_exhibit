@@ -1,3 +1,5 @@
+<DOCTYPE = javascript>
+  
 <script>
   (function() {
      thisHref = location.href,  
@@ -16,11 +18,11 @@
     }
     })();
 
+</script>
 
    // if (/Line/.test(navigator.userAgent)) {
      //    location.href = location.href + ‘?openExternalBrowser=1’; }
     
-</script>
 
 
 
