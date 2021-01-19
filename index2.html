@@ -28,7 +28,7 @@
     })();
 */</script>
 
-<script>
+<script>/*
   (function() {
      function isIos() {
         return ( 
@@ -44,4 +44,81 @@
          window.location = "googlechrome://navigate?url=google.com";   
     }
     })();
-</script>
+*/</script>
+
+<!------------------------------------------------------------------------------------------------------------>
+
+(function() {
+var chrome_warning_text = "建議使用最新版 chrome 瀏覽器才能正常執行本網頁",
+chrome_protocol_text = "如您已安裝 Chrome，請同意用 Chrome 開啟網站，才能確保執行正常。或是請取消後自行改用外部瀏覽器開啟本頁面網址",
+userAgent = navigator.userAgent,
+thisHref = location.href,
+thisUrl = location.hostname + location.pathname,
+isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent),
+isLine = userAgent.indexOf("Line") > -1,
+isAndroid = userAgent.indexOf("Android") > -1,
+isIOS = /iPhone|iPad|iPod/i.test(userAgent),
+isChrome = /Chrome/.test(userAgent) && /Google Inc/.test(navigator.vendor);
+
+try {
+// 測試是否支援 async
+eval("async () => {}");
+} catch {
+// 測試是否為行動裝置
+if (isMobile) {
+// 偵測是否為 Line 內建瀏覽器
+if (isLine) {
+// Line 內建瀏覽器 直接用外部瀏覽器開啟網頁
+location.href = thisHref.indexOf("?") > 0 ? thisHref + "&openExternalBrowser=1" : thisHref + "?openExternalBrowser=1";
+} else {
+// 偵測是否為 Android
+if (isAndroid) {
+// 偵測是否為 Chrome
+if (isChrome) {
+// 建議使用最新版 chrome
+alert(chrome_warning_text);
+} else {
+// 不是 Chrome 則請訪客同意用 Chrome 開啟網頁
+if (confirm(chrome_protocol_text)){
+location.href = "googlechrome://navigate?url=dts24839169.github.io/wapaul-1/222.html";
+}
+}
+return;
+}
+
+// 偵測是否為 iOS
+if (isIOS) {
+// 偵測是否為 Chrome
+if (isChrome) {
+// 建議使用最新版 chrome
+alert(chrome_warning_text);
+} else {
+// 不是 Chrome 則請訪客同意用 Chrome 開啟網頁
+if (confirm(chrome_protocol_text)){
+location.href = "googlechrome://dts24839169.github.io/wapaul-1/222.html";
+}
+}
+return;
+}
+
+// 其他作業系統建議使用最新版 chrome
+alert(chrome_warning_text);
+}
+} else {
+// 非行動裝置建議使用最新版 chrome
+alert(chrome_warning_text);
+}
+}
+})();
+
+
+
+
+
+
+
+
+
+
+
+
