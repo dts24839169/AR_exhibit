@@ -1,5 +1,6 @@
 <script>
   (function() {
+     thisHref = location.href,  
      thisUrl = location.hostname + location.pathname;  
      function isIos() {
         return ( 
