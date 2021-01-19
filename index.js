@@ -3,7 +3,8 @@
  (function() { 
         function noline() {
         return (
-           (navigator.userAgent.match(/line)));
+           (navigator.userAgent.match(/line))
+        );
         }                             
                                        
         if(noline()) {
