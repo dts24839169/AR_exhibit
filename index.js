@@ -1,17 +1,6 @@
 <script>
   
- (function() { 
-        function noline() {
-        return (
-           (navigator.userAgent.match(/line))
-        );
-        }                             
-                                       
-        if(noline()) {
-            location.href = 'https://dts24839169.github.io/wapaul-1/?openExternalBrowser=1';
-        }else{
-            window.location = '222.html';
-        }
-}
-                   
+if (/Line/.test(navigator.userAgent)) { 
+  location.href = 'https://dts24839169.github.io/wapaul-1/222.html?openExternalBrowser=1'; }
+
 </script>
