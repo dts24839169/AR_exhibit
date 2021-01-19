@@ -1,5 +1,3 @@
-<!DOCTYPE javascript>
-<javascript lang=EN>
 <script>
   
  (function() { 
