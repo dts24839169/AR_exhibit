@@ -2,7 +2,7 @@
   (function() {
      function isIos() {
         return ( 
-         (navigator.userAgent.match(/iPhone|iPad|iPod/i))
+         (navigator.userAgent.match(/iPhone|iPad|iPod/i))>-1
   );
  }
   
