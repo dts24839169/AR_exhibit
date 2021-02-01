@@ -151,24 +151,23 @@ model-viewer {
   <model-viewer src="DU_E8000.glb" poster="" shadow-intensity="1" ar ar-scale="fixed" camera-controls auto-rotate skybox-image='industrial_pipe_and_valve_02.jpg' environment-image='industrial_pipe_and_valve_02_1k.hdr' alt="A BELT SYSTEM BY DTS INC">
   
   <button slot="ar-button" id="ar-button">
-    View in your space
   </button>
 
   <div id="ar-prompt">
-    <img src="">
+    <img src="APPLE AR-08.png">
   </div>
 
   <div class="slider">
     <div class="slides">
-      <button class="slide selected" onclick="switchSrc(this, 'DU_E8000.glb')" style="background-image: url('333.png');">
+      <button class="slide selected" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('333.png');">
 
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000.glb')" style="background-image: url('333.png');">
+      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('STARTER-BN.png');">
 
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000.glb')" style="background-image: url('333.png');">
+      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('JUNIOR-BN.png');">
       
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000.glb')" style="background-image: url('333.png');">
+      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('BAFANGE+-BN.png');">
       
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000.glb')" style="background-image: url('333.png');">    
+      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
     </button></div>
   </div>
 </model-viewer>
@@ -177,7 +176,7 @@ model-viewer {
   const modelViewer = document.querySelector("model-viewer");
 
   window.switchSrc = (element, name) => {
-    const base = "../../assets/ShopifyModels/" + name;
+    const base = " " + name;
     modelViewer.src = base + '.glb';
     modelViewer.poster = base + '.png';
     const slides = document.querySelectorAll(".slide");
