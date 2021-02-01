@@ -143,7 +143,7 @@
     background-color: transparent;
     border: 3px solid blue;
   }
-
+  /*紅色熱點*/
   #annotation{
     background-color: #888888;
     position: absolute;
@@ -157,25 +157,28 @@
 </style>    
 </head>
 <body>
-
-  <model-viewer data-name='111'src="DU_E8000.glb" ios-src="DU_E8000.usdz" url="APPLE AR-08.png" width=330px style="display:block" poster="" shadow-intensity="1" ar ar-modes="WebXR scene-viewer quick-look"  ar-scale="fixed" camera-controls auto-rotate skybox-image='industrial_pipe_and_valve_01.jpg
-' environment-image='industrial_pipe_and_valve_01_1k.hdr' alt="A BELT SYSTEM BY DTS INC" loading="eager">
-  
+  <!--基本設置-->
+  <model-viewer data-name='111'src="DU_E8000.glb" ios-src="DU_E8000.usdz url="APPLE AR-08.png"" poster="" shadow-intensity="1" ar ar-modes="WebXR scene-viewer quick-look"  ar-scale="fixed" camera-controls auto-rotate skybox-image='industrial_pipe_and_valve_01.jpg
+  ' environment-image='industrial_pipe_and_valve_01_1k.hdr' alt="A BELT SYSTEM BY DTS INC" loading="eager">
+  <!--原太空人遮陽板-->
   <button slot="hotspot-visor" data-position="0 1.75 0.35" data-normal="0 0 1"></button>
+  <!--原太空人手臂-->
   <button slot="hotspot-hand" data-position="-0.54 0.93 0.1" data-normal="-0.73 0.05 0.69">
-    <div id="annotation">This hotspot disappears completely</div>
+  <div id="annotation">This hotspot disappears completely</div>
   </button>
+  <!--原太空人腳--> 
   <button slot="hotspot-foot" data-position="0.16 0.1 0.17" data-normal="-0.07 0.97 0.23" data-visibility-attribute="visible"></button>
-  <div id="annotation">This annotation is fixed in screen-space</div>
-</model-viewer>  
-    
+  <!--常駐熱點-->   
+  <div id="annotation">DU_E8000</div>
+  </model-viewer>  
+  
   <button slot="ar-button" id="ar-button">
   </button>
-
+  <!--AR提示-->
   <div id="ar-prompt">
     <img src=>
   </div>
-
+  <!--按鈕目標和圖示--> 
   <div class="slider">
     <div class="slides">
       <button class="slide selected" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('333.png');">
