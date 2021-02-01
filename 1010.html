@@ -1,26 +1,27 @@
 <!DOCTYPE = html>
 <html>
 <head>
-  
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-<style>
-model-viewer {
+  <!--引入Google 字型 -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300&display=swap" rel="stylesheet">  
+  body{font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;}
+  <!--引入Google model viewer -->  
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+  <!--model viewer常規設置-->
+  <style>
+  model-viewer {
   width: 100%;
   height: 90%;
-}
-  :not(:defined) > * {
-    display: none;
+  /*background: linear-gradient(45deg, #00ffff, #5560ff;)*/
+  overflow-x: hidden;
+  --poster-color: #eee;
   }
-
-  model-viewer {
-    background: linear-gradient(45deg, #00ffff, #5560ff;)
-    overflow-x: hidden;
-    --poster-color: #eee;
-    loading="eager";
     
+  :not(:defined) > * {
+  display: none;
   }
-
+    
   #ar-button {
     background-image: url(333.png);
     background-repeat: no-repeat;
@@ -33,7 +34,6 @@ model-viewer {
     white-space: nowrap;
     bottom: 132px;
     padding: 0px 16px 0px 40px;
-    font-family: Roboto Regular, Helvetica Neue, sans-serif;
     font-size: 14px;
     color:#4285f4;
     height: 36px;
@@ -158,7 +158,7 @@ model-viewer {
 <body>
 
   <model-viewer data-name='111'src="DU_E8000.glb" ios-src="DU_E8000.usdz" poster="" shadow-intensity="1" ar ar-modes="WebXR scene-viewer quick-look"  ar-scale="fixed" camera-controls auto-rotate skybox-image='industrial_pipe_and_valve_01.jpg
-' environment-image='industrial_pipe_and_valve_01_1k.hdr' alt="A BELT SYSTEM BY DTS INC">
+' environment-image='industrial_pipe_and_valve_01_1k.hdr' alt="A BELT SYSTEM BY DTS INC" loading="eager">
   
   <button slot="hotspot-visor" data-position="0 1.75 0.35" data-normal="0 0 1"></button>
   <button slot="hotspot-hand" data-position="-0.54 0.93 0.1" data-normal="-0.73 0.05 0.69">
