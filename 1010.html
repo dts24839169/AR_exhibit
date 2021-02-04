@@ -87,7 +87,7 @@
   .slider {
     width: 100%;
     text-align: center;
-    overflow: hidden;
+    overflow: auto;/*hidden*/
     position: absolute;
     bottom: 10px;
   }
@@ -260,8 +260,9 @@
     <img src=>
   </div>
   <!--按鈕目標和圖示--> 
-  <div class="slider">
-    <div class="slides">
+  <div class="slider"><!--滑桿-->
+    <div class="slides"><!--滑塊-->
+      <!--選取的滑塊-->
       <button class="slide selected" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('333.png');">
 
       </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('STARTER-BN.png');">
