@@ -103,8 +103,8 @@
   .slide {
     scroll-snap-align: center;/*start*/
     flex-shrink: 0.2;
-    width: 150px;
-    height: 150px;
+    width: 500px;/*150px*/
+    height: 500px;/*150px*/
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -127,6 +127,7 @@
     outline: 1px solid #4285f4;
   }
 
+   /*熱點主資訊*/  
   button{
     display: block;
     width: 20px;
@@ -137,57 +138,49 @@
     box-sizing: border-box;
   }
 
-  button[slot="hotspot-hand"]{
-    --min-hotspot-opacity: 0;
-    background-color: orange;
-  }
-
-  button[slot="hotspot-foot"]{
+  /*熱點分支*/  
+  button[slot="hotspot-1"]{
     --min-hotspot-opacity: 0;
     border: 2px solid orange;
   }
     
-  button[slot="hotspot-123"]:not([data-visible]) {
-    background-color: transparent;
+  button[slot="hotspot-2"] {
+    --min-hotspot-opacity: 0;
     border: 2px solid orange;
   }  
-    button[slot="hotspot-456"]:not([data-visible]) {
-    background-color: transparent;
-    border: 0px solid orange;
-  }   
 
-  /*會跑出版版的註解框*/
+  /*會旋轉的註解框*/
   #annotation{
-    background-color: #888888;
+    background-color: #888888;/*灰色 用於零組件*/
     position: absolute;
     transform: translate(10px, 10px);
     border-radius: 10px;
     padding: 7px;
     opacity:0.8;
   }
-   #annotation1{
-    background-color: #ffffff;
+   #annotation-1{
+    background-color: #ffffff;/*白色 用於尺寸*/
     position: absolute;
     transform: translate(15px, 15px);
     border-radius: 10px;
     padding: 20px;
     opacity:1;
   } 
-   
-    
     
   :not(:defined) > * {
     display: none;
   }
     
-    H1{font-size:60px;opacity:1;}
-    H2{font-size:48px;opacity:1;}
-    H3{font-size:36px;opacity:1;}
-    H4{font-size:24px;opacity:1;}
-    H5{font-size:16px;opacity:1;}
-    H6{font-size:12px;opacity:1;}
-    p{font-size:10px;opacity:1;}
+    /*字型大小控制*/
+    H1{font-size:60px;}
+    H2{font-size:48px;}
+    H3{font-size:36px;}
+    H4{font-size:24px;}
+    H5{font-size:16px;}
+    H6{font-size:12px;}
+    p{font-size:10px;}
     
+    /*大標題*/
     .light{
      position: absolute;
      color:#ffffff; 
@@ -195,7 +188,7 @@
      display:inline-block;
      margin-top:-10px; 
      }      
-    
+    /*型號*/
     .light2{
      position: absolute;
      color:#E0E0E0; 
@@ -203,9 +196,8 @@
      display:inline-block;
      margin-top:5px; 
      margin-left:300px; 
-   
     }      
-    
+    /*版權*/
     .light3{
      position: absolute; 
      color:#E0E0E0; 
@@ -223,25 +215,17 @@
   <!--基本設置-->
   <model-viewer data-name='111'src="DU_E8000.glb" ios-src="DU_E8000.usdz" poster="" shadow-intensity="0" ar ar-modes="WebXR scene-viewer quick-look"  ar-scale="fixed" camera-controls auto-rotate skybox-image='stone_alley_02.jpg'
    environment-image='stone_alley_02_1k.hdr'exposure='1.62' alt="A BELT SYSTEM BY DTS INC" loading="eager">
-  <!--原太空人遮陽板-->
-  <!--<button slot="hotspot-visor" data-position="0 1.75 0.35" data-normal="0 0 1"></button>-->
-  <!--原太空人手臂-->
-  <!--<button slot="hotspot-hand" data-position="-0.54 0.93 0.1" data-normal="-0.73 0.05 0.69">
-  <div id="annotation">This hotspot disappears completely</div>
-  </button>-->
-  <!--原太空人腳 現為1號紅點-->
-  <button slot="hotspot-foot" data-position="0.1737 0.09 0.063" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+
+  <!--1號紅點-->
+  <button slot="hotspot-1" data-position="0.1737 0.09 0.063" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
   <H4><div id='annotation'>Front Chainring</div><H4><!--0.17 0.09 0.08-->
   </button>
    <!--2號紅點-->
-  <button slot="hotspot-123" data-position="-0.275  0.09 0.06" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <button slot="hotspot-2" data-position="-0.275  0.09 0.06" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
   <H4><div id='annotation'>Rear Chainring</div><H4>
   </button>   
-    <!--3號紅點-->
-  <!--<button slot="hotspot-456" data-position="-0.07  0.155 0.0615" data-normal="-0.00 0.00 0.00" data-visibility-attribute="none" margin="8px" >
-  <H4><div id='annotation1'>100cm</div><H4>
-  </button>-->   
-  <!--常駐熱點-->   
+
+  <!--資訊框-->   
   <div class='light' >
     <H2>DU_E8000</H2>
   </div>
@@ -279,7 +263,7 @@
       
       </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">      
       <!--
-        </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('STARTER-BN.png');">
+      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('STARTER-BN.png');">
 
       </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('JUNIOR-BN.png');">
       
