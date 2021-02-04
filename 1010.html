@@ -21,7 +21,7 @@
   :not(:defined) > * {
   display: none;
   }
-    
+ /*   
   #ar-button {
     background-image: url(APPLE AR-08.png);
     background-repeat: no-repeat;
@@ -41,12 +41,13 @@
     border-radius: 18px;
     border: 1px solid #DADCE0;
   }
-
-   
+*/
+/*   
   #ar-button:active {
     background-color: #E8EAED/*黑色*/;
   }
-
+*/
+/*   
   #ar-button:focus {
     outline: none;
   }
@@ -54,8 +55,8 @@
   #ar-button:focus-visible {
     outline: 1px solid #4285f4/*藍色*/;
   }
+*/
 
-    
     
   @keyframes circle {
     from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
@@ -149,6 +150,10 @@
     border: 2px solid orange;
   }  
 
+  button[slot="ar-button"]{
+  background-image: url(APPLE AR-08.png);
+  }  
+    
   /*會旋轉的註解框*/
   #annotation{
     background-color: #888888;/*灰色 用於零組件*/
@@ -215,7 +220,10 @@
   <!--基本設置-->
   <model-viewer data-name='111'src="DU_E8000.glb" ios-src="DU_E8000.usdz" poster="" shadow-intensity="0" ar ar-modes="WebXR scene-viewer quick-look"  ar-scale="fixed" camera-controls auto-rotate skybox-image='stone_alley_02.jpg'
   environment-image='stone_alley_02_1k.hdr'exposure='1.62' alt="A BELT SYSTEM BY DTS INC" loading="eager"> 
-  <div id='ar-button'></div>
+  <button slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; top: 16px; right: 16px; ">
+  AR
+  </button>
+  </model-viewer>
 
   <!--1號紅點-->
   <button slot="hotspot-1" data-position="0.1737 0.09 0.063" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
