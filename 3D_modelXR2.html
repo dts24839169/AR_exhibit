@@ -15,6 +15,19 @@
   height:100%;
     }
     
+    #ar-button:active {
+    background-color: #E8EAED/*黑色*/;
+  }
+
+  #ar-button:focus {
+    outline: none;
+  }
+
+  #ar-button:focus-visible {
+    outline: 1px solid #4285f4/*藍色*/;
+  }
+    
+    
   #controls {
     position: absolute;
     bottom: 16px;
@@ -77,7 +90,11 @@
   <button slot="hotspot-dot-X-Y-Z" class="dot" data-position="-1 -1 -1" data-normal="-1 0 0"></button>
   <button slot="hotspot-dim-X-Y" class="dim" data-position="-1 -1 0" data-normal="-1 0 0"></button>
   <button slot="hotspot-dot-X-Y+Z" class="dot" data-position="-1 -1 1" data-normal="-1 0 0"></button>
-
+  
+  <button slot="ar-button" style="background-color: white; border-radius: 10px; border:none; position: absolute; top: 83%;  left:40%; ">
+  <H3 style='position:absolute; top:-36px; left:72px; '>AR</H3>
+  </button>
+  
   <div id="controls" class="dim">
     <label for="src">Product:</label>
     <select id="src">
