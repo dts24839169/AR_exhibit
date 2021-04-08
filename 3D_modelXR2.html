@@ -9,309 +9,173 @@
   <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
   <!--model viewer常規設置-->
   <style>
-  body{font-family: 'PT Sans', sans-serif;}  
-  model-viewer {
-  width: 100%;
-  height:100%;
-  /*background: linear-gradient(45deg, #00ffff, #5560ff;)*/
-  overflow-x: hidden;
-  --poster-color: #eee;  
-  }
-    
-  :not(:defined) > * {
-  display: none;
-  }
- /*   
-  #ar-button {
-    background-image: url(APPLE AR-08.png);
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    background-position: 12px 50%;
-    background-color: #fff;
+  #controls {
     position: absolute;
-    left: 50%;
-    transform:translateX(-50%) ;
-    white-space: nowrap;
-    bottom: 132px;
-    padding: 0px 16px 0px 40px;
-    font-size: 14px;
-    color:#4285f4;
-    height: 36px;
-    line-height: 36px;
-    border-radius: 18px;
-    border: 1px solid #DADCE0;
-  }*/
-
- 
-  #ar-button:active {
-    background-color: #E8EAED/*黑色*/;
+    bottom: 16px;
+    left: 16px;
+    max-width: unset;
+    transform: unset;
   }
 
- 
-  #ar-button:focus {
-    outline: none;
+  .dot{
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    background: #fff;
+    --min-hotspot-opacity: 0;
   }
 
-  #ar-button:focus-visible {
-    outline: 1px solid #4285f4/*藍色*/;
-  }
-
-
-    
-  @keyframes circle {
-    from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
-    to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
-  }
-
-  @keyframes elongate {
-    from { transform: translateX(100px); }
-    to   { transform: translateX(-100px); }
-  }
-
-  model-viewer > #ar-prompt {
+  .dim{
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 0.8);
+    display: block;
+    font-family: Futura, Helvetica Neue, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    max-width: 128px;
+    overflow-wrap: break-word;
+    padding: 0.5em 1em;
     position: absolute;
-    left: 50%;
-    bottom: 175px;
-    animation: elongate 2s infinite ease-in-out alternate;
+    width: max-content;
+    height: max-content;
+    transform: translate3d(-50%, -50%, 0);
+    --min-hotspot-opacity: 0;
+  }
+
+  .show{
+    --min-hotspot-opacity: 1;
+  }
+
+  .hide{
     display: none;
   }
-
-  model-viewer[ar-status="session-started"] > #ar-prompt {
-    display: block;
-  }
-
-  model-viewer > #ar-prompt > img {
-    animation: circle 4s linear infinite;
-  }
-
-  .slider {
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    position: absolute;
-    bottom: 10px;
-  }
-
-  .slides {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .slide {
-    scroll-snap-align: center;/*start*/
-    flex-shrink: 0.2;
-    width: 150px;/*150px*/
-    height: 150px;/*150px*/
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #fff;
-    opacity:1;
-    margin-right: 10px;
-    border-radius: 10px;
-    border: none;
-    display: flex;
-  }
-    
- /*按鈕觸發呈現藍色*/  
-  .slide.selected {
-    border: 2px solid #5eb640;/*藍色*/
-  }
-
-  .slide:focus {
-    outline: none;
-  }
-
-  .slide:focus-visible {
-    outline: 1px solid #4285f4;/*藍色*/
-  }
-
-   /*熱點主資訊*/  
-  button{
-    display: block;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: orange;
-    box-sizing: border-box;
-  }
-
-  /*熱點分支*/  
-  button[slot="hotspot-1"]{
-    --min-hotspot-opacity: 0;
-    border: 2px solid orange;
-  }
-    
-  button[slot="hotspot-2"] {
-    --min-hotspot-opacity: 0;
-    border: 2px solid orange;
-  }  
-
-  button[slot="ar-button"]{
-  width: 200px;
-  height: 75px;
-  line-height:75px;
-  opacity:0.7;  
-  }  
-    
-  /*會旋轉的註解框*/
-  #annotation{
-    background-color: #888888;/*灰色 用於零組件*/
-    position: absolute;
-    transform: translate(10px, 10px);
-    border-radius: 10px;
-    padding: 7px;
-    opacity:0.8;
-  }
-   #annotation-1{
-    background-color: #ffffff;/*白色 用於尺寸*/
-    position: absolute;
-    transform: translate(15px, 15px);
-    border-radius: 10px;
-    padding: 20px;
-    opacity:1;
-  } 
-    
+  /* This keeps child nodes hidden while the element loads */
   :not(:defined) > * {
     display: none;
   }
-    
-    /*字型大小控制*/
-    H1{font-size:60px;}
-    H2{font-size:48px;}
-    H3{font-size:36px;text-align: center;}
-    H4{font-size:24px;}
-    H5{font-size:16px;}
-    H6{font-size:12px;}
-    p{font-size:10px;}
-    
-    /*大標題*/
-    .light{
-     position: absolute;
-     color:#3a3a3a; 
-     text-shadow:0px 0px 2.5px #fff;
-     display:inline-block;
-     margin-top:-10px;
-     margin-left:25px; 
-     }      
-    /*型號*/
-    .light2{
-     position: absolute;
-     color:#3a3a3a; 
-     text-shadow:0px 0px 0.5px 	#9D9D9D;
-     display:inline-block;
-     margin-top:5px; 
-     margin-left:350px; 
-    }      
-    /*版權*/
-    .light3{
-     position: absolute; 
-     color:#3a3a3a; 
-     text-shadow:0px 0px 0.5px 	#9D9D9D;
-     display:inline-block;
-     margin-top:15px;
-     margin-right:5px;
-     margin-left:84%; 
-    }      
-    
-    
-</style>    
+</style>
 </head>
-<body><!--全景3.hdr / 全景3-2.jpg -->
-  <!--基本設置-->
-  <model-viewer data-name='111'src="stream.glb" ios-src="stream.usdz" poster="" shadow-intensity="0" ar ar-modes="WebXR scene-viewer quick-look"  ar-scale="fixed" camera-controls autoplay ar skybox-image='111-3.jpg' 
-  environment-image='111.hdr'exposure='1.2' alt="A BELT SYSTEM BY DTS INC" loading="eager"> 
-  <button slot="ar-button" style="background-color: white; border-radius: 10px; border:none; position: absolute; top: 83%;  left:40%; ">
-  <H3 style='position:absolute; top:-36px; left:72px; '>AR</H3>
-  </button>
+<model-viewer id="dimension-demo" ar ar-modes="webxr" ar-scale="fixed" camera-orbit="-30deg auto auto" max-camera-orbit="auto 100deg auto" shadow-intensity="1" camera-controls src="../../assets/ShopifyModels/Chair.glb" alt="A 3D model of an armchair.">
+  <button slot="hotspot-dot+X-Y+Z" class="dot" data-position="1 -1 1" data-normal="1 0 0"></button>
+  <button slot="hotspot-dim+X-Y" class="dim" data-position="1 -1 0" data-normal="1 0 0"></button>
+  <button slot="hotspot-dot+X-Y-Z" class="dot" data-position="1 -1 -1" data-normal="1 0 0"></button>
+  <button slot="hotspot-dim+X-Z" class="dim" data-position="1 0 -1" data-normal="1 0 0"></button>
+  <button slot="hotspot-dot+X+Y-Z" class="dot show" data-position="1 1 -1" data-normal="0 1 0"></button>
+  <button slot="hotspot-dim+Y-Z" class="dim show" data-position="0 -1 -1" data-normal="0 1 0"></button>
+  <button slot="hotspot-dot-X+Y-Z" class="dot show" data-position="-1 1 -1" data-normal="0 1 0"></button>
+  <button slot="hotspot-dim-X-Z" class="dim" data-position="-1 0 -1" data-normal="-1 0 0"></button>
+  <button slot="hotspot-dot-X-Y-Z" class="dot" data-position="-1 -1 -1" data-normal="-1 0 0"></button>
+  <button slot="hotspot-dim-X-Y" class="dim" data-position="-1 -1 0" data-normal="-1 0 0"></button>
+  <button slot="hotspot-dot-X-Y+Z" class="dot" data-position="-1 -1 1" data-normal="-1 0 0"></button>
 
-  <!--1號紅點-->
-  <button slot="hotspot-1" data-position="0.1737 0.09 0.063" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
-  <H4><div id='annotation'>Front Cog</div><H4><!--0.17 0.09 0.08-->
-  </button>
-   <!--2號紅點-->
-  <button slot="hotspot-2" data-position="-0.275  0.09 0.06" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
-  <H4><div id='annotation'>Rear Cog</div><H4>
-  </button>   
+  <div id="controls" class="dim">
+    <label for="src">Product:</label>
+    <select id="src">
+      <option value="starter.glb">Chair</option>
+      <option value="starter+.glb">Mixer</option>
+      <option value="stream.glb">Cactus</option>
+      <option value="junior+.glb">Cactus</option>
+    </select><br>
 
-  <!--資訊框-->   
-  <div class='light' >
-    <H2>CYCLE DRIVE</H2>
-  </div>
-  <div class='light2' >
-    <H3>BELT SYSTEMS</H3>
-  </div>
-  <div class='light3' >
-    <H4>Copyright © 2021 DTS Inc.</H4>
-  </div>  
-  </model-viewer>  
-  
-  <!--<button slot="ar-button" id="ar-button">
-  </button>-->
-  <!--AR提示-->
-  <div id="ar-prompt">
-    <img src=>
-  </div>
-  <!--按鈕目標和圖示--> 
-  <div class="slider"><!--滑桿-->
-    <div class="slides"><!--滑塊-->
-      <!--選取的滑塊-->
-      <button class="slide selected" onclick="switchSrc(this, 'stream.glb')" style="background-image: url('tag-01.jpg');">
-
-      </button><button class="slide" onclick="switchSrc(this, '')" style="background-image: url('tag-03.jpg');">
-
-      </button><button class="slide" onclick="switchSrc(this, 'junior+.glb')" style="background-image: url('tag-02.jpg');">
-      
-      </button><button class="slide" onclick="switchSrc(this, 'starter+.glb')" style="background-image: url('tag-04.jpg');">
-      
-      </button><button class="slide" onclick="switchSrc(this, 'starter.glb')" style="background-image: url('tag-05.jpg');">    
-     <!-- 
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-         
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('STARTER-BN.png');">
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('JUNIOR-BN.png');">
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('BAFANGE+-BN.png');">
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">  -->  
-        
-    </button></div>
+    <label for="show-dimensions">Show Dimensions:</label>
+    <input id="show-dimensions" type="checkbox" checked="true">
   </div>
 </model-viewer>
 
 <script type="module">
-  const modelViewer = document.querySelector("model-viewer");
+  const modelViewer = document.querySelector('#dimension-demo');
 
-  window.switchSrc = (element, name) => {
-    const base = " " + name;
-    modelViewer.src = base + '';
-    modelViewer.poster = base + '.jpg';
-    const slides = document.querySelectorAll(".slide");
-    slides.forEach((element) => {element.classList.remove("selected");});
-    element.classList.add("selected");
-  };
+  modelViewer.querySelector('#src').addEventListener('input', (event) => {
+    modelViewer.src = event.target.value;
+  });
 
-  document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
-    ev.preventDefault();
+  const checkbox = modelViewer.querySelector('#show-dimensions');
+  checkbox.addEventListener('change', () => {
+    modelViewer.querySelectorAll('button').forEach((hotspot) => {
+      if (checkbox.checked) {
+        hotspot.classList.remove('hide');
+      } else {
+        hotspot.classList.add('hide');
+      }
+    });
+  });
+
+  modelViewer.addEventListener('load', () => {
+    const center = modelViewer.getCameraTarget();
+    const size = modelViewer.getDimensions();
+    const x2 = size.x / 2;
+    const y2 = size.y / 2;
+    const z2 = size.z / 2;
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dot+X-Y+Z',
+      position: `${center.x + x2} ${center.y - y2} ${center.z + z2}`
+    });
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dim+X-Y',
+      position: `${center.x + x2} ${center.y - y2} ${center.z}`
+    });
+    modelViewer.querySelector('button[slot="hotspot-dim+X-Y"]').textContent =
+        `${(size.z * 100).toFixed(0)} cm`;
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dot+X-Y-Z',
+      position: `${center.x + x2} ${center.y - y2} ${center.z - z2}`
+    });
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dim+X-Z',
+      position: `${center.x + x2} ${center.y} ${center.z - z2}`
+    });
+    modelViewer.querySelector('button[slot="hotspot-dim+X-Z"]').textContent =
+        `${(size.y * 100).toFixed(0)} cm`;
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dot+X+Y-Z',
+      position: `${center.x + x2} ${center.y + y2} ${center.z - z2}`
+    });
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dim+Y-Z',
+      position: `${center.x} ${center.y + y2} ${center.z - z2}`
+    });
+    modelViewer.querySelector('button[slot="hotspot-dim+Y-Z"]').textContent =
+        `${(size.x * 100).toFixed(0)} cm`;
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dot-X+Y-Z',
+      position: `${center.x - x2} ${center.y + y2} ${center.z - z2}`
+    });
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dim-X-Z',
+      position: `${center.x - x2} ${center.y} ${center.z - z2}`
+    });
+    modelViewer.querySelector('button[slot="hotspot-dim-X-Z"]').textContent =
+        `${(size.y * 100).toFixed(0)} cm`;
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dot-X-Y-Z',
+      position: `${center.x - x2} ${center.y - y2} ${center.z - z2}`
+    });
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dim-X-Y',
+      position: `${center.x - x2} ${center.y - y2} ${center.z}`
+    });
+    modelViewer.querySelector('button[slot="hotspot-dim-X-Y"]').textContent =
+        `${(size.z * 100).toFixed(0)} cm`;
+
+    modelViewer.updateHotspot({
+      name: 'hotspot-dot-X-Y+Z',
+      position: `${center.x - x2} ${center.y - y2} ${center.z + z2}`
+    });
   });
 </script>
-
-
-
-
-
 </body>
 </html>
