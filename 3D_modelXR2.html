@@ -14,8 +14,16 @@
   width: 100%;
   height:100%;
     }
-   
-   .dot{
+    
+  #controls {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    max-width: unset;
+    transform: unset;
+  }
+
+  .dot{
     display: block;
     width: 12px;
     height: 12px;
@@ -23,46 +31,27 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     background: #fff;
     --min-hotspot-opacity: 0;
-  }  
-    
-    #ar-button:active {
-    background-color: #E8EAED/*黑色*/;
   }
 
-  #ar-button:focus {
-    outline: none;
-  }
-
-  #ar-button:focus-visible {
-    outline: 1px solid #4285f4/*藍色*/;
-  }
-  
-   @keyframes circle {
-    from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
-    to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
-  }
-
-  @keyframes elongate {
-    from { transform: translateX(100px); }
-    to   { transform: translateX(-100px); }
-  }  
-    
-   model-viewer > #ar-prompt {
-    position: absolute;
-    left: 50%;
-    bottom: 175px;
-    animation: elongate 2s infinite ease-in-out alternate;
-    display: none;
-  }
-
-  model-viewer[ar-status="session-started"] > #ar-prompt {
+  .dim{
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 0.8);
     display: block;
+    font-family: Futura, Helvetica Neue, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    max-width: 128px;
+    overflow-wrap: break-word;
+    padding: 0.5em 1em;
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    transform: translate3d(-50%, -50%, 0);
+    --min-hotspot-opacity: 0;
   }
 
-  model-viewer > #ar-prompt > img {
-    animation: circle 4s linear infinite;
-  }  
-    
   .show{
     --min-hotspot-opacity: 1;
   }
@@ -74,112 +63,9 @@
   :not(:defined) > * {
     display: none;
   }
-    
-   .slider {
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    position: absolute;
-    bottom: 10px;
-  }
-
-  .slides {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .slide {
-    scroll-snap-align: center;/*start*/
-    flex-shrink: 0.2;
-    width: 150px;/*150px*/
-    height: 150px;/*150px*/
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #fff;
-    opacity:1;
-    margin-right: 10px;
-    border-radius: 10px;
-    border: none;
-    display: flex;
-  }
-    
- /*按鈕觸發呈現藍色*/  
-  .slide.selected {
-    border: 2px solid #5eb640;/*藍色*/
-  }
-
-  .slide:focus {
-    outline: none;
-  }
-
-  .slide:focus-visible {
-    outline: 1px solid #4285f4;/*藍色*/
-  }
-   /*熱點主資訊*/  
-  button{
-    display: block;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: orange;
-    box-sizing: border-box;
-  }
-
-  /*熱點分支*/  
-  button[slot="hotspot-1"]{
-    --min-hotspot-opacity: 0;
-    border: 2px solid orange;
-  }
-    
-  button[slot="hotspot-2"] {
-    --min-hotspot-opacity: 0;
-    border: 2px solid orange;
-  }  
-
-  button[slot="ar-button"]{
-  width: 200px;
-  height: 75px;
-  line-height:75px;
-  opacity:0.7;  
-  }  
-    
-     /*大標題*/
-    .light{
-     position: absolute;
-     color:#3a3a3a; 
-     text-shadow:0px 0px 2.5px #fff;
-     display:inline-block;
-     margin-top:-10px;
-     margin-left:25px; 
-     }      
-    /*型號*/
-    .light2{
-     position: absolute;
-     color:#3a3a3a; 
-     text-shadow:0px 0px 0.5px 	#9D9D9D;
-     display:inline-block;
-     margin-top:5px; 
-     margin-left:350px; 
-    }      
-    /*版權*/
-    .light3{
-     position: absolute; 
-     color:#3a3a3a; 
-     text-shadow:0px 0px 0.5px 	#9D9D9D;
-     display:inline-block;
-     margin-top:15px;
-     margin-right:5px;
-     margin-left:84%; 
-    }        
-    
 </style>
 </head>
-<model-viewer id="dimension-demo" ar ar-modes="WebXR scene-viewer quick-look" ios-src="stream.usdz" ar-scale="fixed" camera-orbit="-30deg auto auto" max-camera-orbit="auto 100deg auto" shadow-intensity="1" camera-controls src="starter.glb" alt="A belt of DTS INC.">
+<model-viewer id="dimension-demo" ar ar-modes="webxr" ar-scale="fixed" camera-orbit="-30deg auto auto" max-camera-orbit="auto 100deg auto" shadow-intensity="1" camera-controls src="starter.glb" alt="A belt of DTS INC.">
   <button slot="hotspot-dot+X-Y+Z" class="dot" data-position="1 -1 1" data-normal="1 0 0"></button>
   <button slot="hotspot-dim+X-Y" class="dim" data-position="1 -1 0" data-normal="1 0 0"></button>
   <button slot="hotspot-dot+X-Y-Z" class="dot" data-position="1 -1 -1" data-normal="1 0 0"></button>
@@ -191,44 +77,16 @@
   <button slot="hotspot-dot-X-Y-Z" class="dot" data-position="-1 -1 -1" data-normal="-1 0 0"></button>
   <button slot="hotspot-dim-X-Y" class="dim" data-position="-1 -1 0" data-normal="-1 0 0"></button>
   <button slot="hotspot-dot-X-Y+Z" class="dot" data-position="-1 -1 1" data-normal="-1 0 0"></button>
-  
-  <button slot="ar-button" style="background-color: white; border-radius: 10px; border:none; position: absolute; top: 83%;  left:40%; ">
-  <H3 style='position:absolute; top:-36px; left:72px; '>AR</H3>
-  </button>
-   
-  <!--資訊框-->   
-  <div class='light' >
-    <H2>CYCLE DRIVE</H2>
-  </div>
-  <div class='light2' >
-    <H3>BELT SYSTEMS</H3>
-  </div>
-  <div class='light3' >
-    <H4>Copyright © 2021 DTS Inc.</H4>
-  </div>  
-  </model-viewer>  
-  
-  <!--<button slot="ar-button" id="ar-button">
-  </button>-->
-  <!--AR提示-->
-  <div id="ar-prompt">
-    <img src=>
-  </div>
-  <!--按鈕目標和圖示--> 
-  <div class="slider"><!--滑桿-->
-    <div class="slides"><!--滑塊-->
-      <!--選取的滑塊-->
-      <button class="slide selected" onclick="switchSrc(this, 'stream.glb')" style="background-image: url('tag-01.jpg');">
 
-      </button><button class="slide" onclick="switchSrc(this, '')" style="background-image: url('tag-03.jpg');">
+  <div id="controls" class="dim">
+    <label for="src">Product:</label>
+    <select id="src">
+      <option value="starter.glb">starter</option>
+      <option value="starter+.glb">starter+</option>
+      <option value="stream.glb">stream</option>
+      <option value="junior+.glb">junior+</option>
+    </select><br>
 
-      </button><button class="slide" onclick="switchSrc(this, 'junior+.glb')" style="background-image: url('tag-02.jpg');">
-      
-      </button><button class="slide" onclick="switchSrc(this, 'starter+.glb')" style="background-image: url('tag-04.jpg');">
-      
-      </button><button class="slide" onclick="switchSrc(this, 'starter.glb')" style="background-image: url('tag-05.jpg');">     
-    </button></div>
-    </div>
     <label for="show-dimensions">Show Dimensions:</label>
     <input id="show-dimensions" type="checkbox" checked="true">
   </div>
@@ -323,22 +181,6 @@
       name: 'hotspot-dot-X-Y+Z',
       position: `${center.x - x2} ${center.y - y2} ${center.z + z2}`
     });
-  });
-</script>
-<script type="module">
-  const modelViewer = document.querySelector("model-viewer");
-
-  window.switchSrc = (element, name) => {
-    const base = " " + name;
-    modelViewer.src = base + '';
-    modelViewer.poster = base + '.jpg';
-    const slides = document.querySelectorAll(".slide");
-    slides.forEach((element) => {element.classList.remove("selected");});
-    element.classList.add("selected");
-  };
-
-  document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
-    ev.preventDefault();
   });
 </script>
 </body>
