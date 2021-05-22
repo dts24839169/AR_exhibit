@@ -260,35 +260,16 @@
   <div class="slider"><!--滑桿-->
     <div class="slides"><!--滑塊-->
       <!--選取的滑塊-->
-      <button class="slide selected" onclick="switchSrc(this, 'stream.glb')" style="background-image: url('tag-01.jpg');">
+      <button class="slide selected" onclick="switchSrc(this, 'stream.glb')" onclick="switchios-src(this,  'stream.usdz' )" style="background-image: url('tag-01.jpg');">
 
-      </button><button class="slide" onclick="switchSrc(this, 'performance_class.glb')" style="background-image: url('tag-03.jpg');">
+      </button><button class="slide" onclick="switchSrc(this, 'performance_class.glb')" onclick="switchios-src(this,  'performance_class.usdz' )"style="background-image: url('tag-03.jpg');">
 
-      </button><button class="slide" onclick="switchSrc(this, 'junior+.glb')" style="background-image: url('tag-02.jpg');">
+      </button><button class="slide" onclick="switchSrc(this, 'junior+.glb')" onclick="switchios-src(this,  'junior+.usdz' )" style="background-image: url('tag-02.jpg');">
       
-      </button><button class="slide" onclick="switchSrc(this, 'starter+.glb')" style="background-image: url('tag-04.jpg');">
+      </button><button class="slide" onclick="switchSrc(this, 'starter+.glb')" onclick="switchios-src(this,  'starter+.usdz' )" style="background-image: url('tag-04.jpg');">
       
-      </button><button class="slide" onclick="switchSrc(this, 'starter.glb')" style="background-image: url('tag-05.jpg');">    
-     <!-- 
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-         
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">      
-
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('STARTER-BN.png');">
-
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('JUNIOR-BN.png');">
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('BAFANGE+-BN.png');">
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">    
-      
-      </button><button class="slide" onclick="switchSrc(this, 'DU_E8000')" style="background-image: url('PERFORMANCE CLASSIC-BN.png');">  -->  
+      </button><button class="slide" onclick="switchSrc(this, 'starter.glb')" onclick="switchios-src(this,  'starter.usdz' )" style="background-image: url('tag-05.jpg');">    
+ 
         
     </button></div>
   </div>
@@ -298,9 +279,11 @@
   const modelViewer = document.querySelector("model-viewer");
 
   window.switchSrc = (element, name) => {
+    window.switchios-Src = (element , name)
     const base = " " + name;
     modelViewer.src = base + '';
     modelViewer.poster = base + '.jpg';
+    modelViewer.ios-src = base +'';
     const slides = document.querySelectorAll(".slide");
     slides.forEach((element) => {element.classList.remove("selected");});
     element.classList.add("selected");
