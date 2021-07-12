@@ -10,6 +10,7 @@
   <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
   <!--model viewer常規設置-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
   body{font-family: 'PT Sans', sans-serif;}  
   model-viewer {
@@ -120,7 +121,7 @@
     
  /*按鈕觸發呈現藍色*/  
   .slide.selected {
-    border: 2px solid #5eb640;/*藍色*/
+    border: 2px solid #4285f4;/*藍色*/
   }
 
   .slide:focus {
@@ -133,7 +134,7 @@
 
    /*熱點主資訊*/  
   button{
-    display: block;
+    display: none;
     width: 20px;
     height: 20px;
     border-radius: 10px;
@@ -142,7 +143,7 @@
     box-sizing: border-box;
   }
 
-  /*熱點分支*/  
+  /*熱點分支
   button[slot="hotspot-1"]{
     --min-hotspot-opacity: 0;
     border: 2px solid orange;
@@ -157,8 +158,11 @@
   width: 200px;
   height: 75px;
   line-height:75px;
-  opacity:0.7;  
-  }  
+  opacity:0.7;
+  --min-hotspot-opacity: 0;
+  border: 2px solid orange;
+  display: none;
+  } */
     
   /*會旋轉的註解框*/
   #annotation{
@@ -219,12 +223,12 @@
      margin-top:15px;
      margin-right:5px;
      margin-left:84%; 
-    }      
+    }
     
     
 </style>    
 </head>
-<body>
+<body id="tab-inner">
   <!--全景3.hdr / 全景3-2.jpg -->
   <!--基本設置-->
   <model-viewer data-name='111'src="stream.glb" ios-src="stream.usdz" poster="" shadow-intensity="0" ar ar-modes="WebXR scene-viewer quick-look"  ar-scale="fixed" camera-controls autoplay ar skybox-image='111.jpg' 
@@ -233,14 +237,55 @@
   <H3 style='position:absolute; top:-36px; left:72px; '>AR</H3>
   </button>
 
-  <!--1號紅點-->
-  <button slot="hotspot-1" data-position="0.1737 0.09 0.063" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <!--1-1號紅點-->
+  <button class="hotspot" id="btn1" slot="hotspot-1" data-position="0.1737 0.09 0.063" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible" style="display: block;">
   <H4><div id='annotation'>Front Cog</div><H4><!--0.17 0.09 0.08-->
   </button>
-   <!--2號紅點-->
-  <button slot="hotspot-2" data-position="-0.275  0.09 0.06" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  
+  <!--1-2號紅點-->
+  <button class="hotspot" id="btn2" slot="hotspot-2" data-position="-0.275  0.09 0.06" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible" style="display: block;">
   <H4><div id='annotation'>Rear Cog</div><H4>
-  </button>   
+  </button>
+
+  <!--2-1號紅點-->
+  <button class="hotspot" id="btn3" slot="hotspot-3" data-position="0.2  0.09 0.0" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <H4><div id='annotation'>Front Cog</div><H4><!--0.17 0.09 0.08-->
+  </button>
+    
+  <!--2-2號紅點-->
+  <button class="hotspot" id="btn4" slot="hotspot-4" data-position="-0.245 0.09 0.0" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <H4><div id='annotation'>Rear Cog</div><H4>
+  </button>
+
+  <!--3-1號紅點-->
+  <button class="hotspot" id="btn5" slot="hotspot-5" data-position="0.071  0.082 0.017" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <H4><div id='annotation'>Front Cog</div><H4><!--0.17 0.09 0.08-->
+  </button>
+      
+  <!--3-2號紅點-->
+  <button class="hotspot" id="btn6" slot="hotspot-6" data-position="-0.218 0.082 0.017" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <H4><div id='annotation'>Rear Cog</div><H4>
+  </button>
+
+  <!--4-1號紅點-->
+  <button class="hotspot" id="btn7" slot="hotspot-7" data-position="0.118 0.066 0.011" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <H4><div id='annotation'>Front Cog</div><H4><!--0.17 0.09 0.08-->
+  </button>
+      
+  <!--4-2號紅點-->
+  <button class="hotspot" id="btn8" slot="hotspot-8" data-position="-0.197  0.066 0.011" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <H4><div id='annotation'>Rear Cog</div><H4>
+  </button>
+
+  <!--5-1號紅點-->
+  <button class="hotspot" id="btn9" slot="hotspot-9" data-position="0.118 0.066 -0.01" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <H4><div id='annotation'>Front Cog</div><H4><!--0.17 0.09 0.08-->
+  </button>
+      
+  <!--5-2號紅點-->
+  <button class="hotspot" id="btn10" slot="hotspot-10" data-position="-0.197  0.066 -0.01" data-normal="-0.00 0.00 0.00" data-visibility-attribute="visible">
+  <H4><div id='annotation'>Rear Cog</div><H4>
+  </button>
 
   <!--資訊框-->   
   <div class='light' >
@@ -265,20 +310,19 @@
   </div>
   <!--按鈕目標和圖示--> 
   <div class="slider"><!--滑桿-->
-    <div class="slides"><!--滑塊-->
+    <div class="slides" id="tabs"><!--滑塊-->
       <!--選取的滑塊-->
-      <button class="slide selected" onclick="switchSrc(this, 'stream.glb') " style="background-image: url('tag-01.png');">
-
-      </button><button class="slide" onclick="switchSrc(this, 'performance_class.glb') "style="background-image: url('tag-03.png');">
-
-      </button><button class="slide" onclick="switchSrc(this, 'junior+.glb') "style="background-image: url('tag-02.png');">
+      <button class="slide selected" id="tab1" onclick="switchSrc(this, 'stream.glb') " style="background-image: url('tag-01.png');"></button>
       
-      </button><button class="slide" onclick="switchSrc(this, 'starter+.glb') "style="background-image: url('tag-04.png');">
+      <button class="slide" id="tab2" onclick="switchSrc(this, 'performance_class.glb') "style="background-image: url('tag-03.png');"></button>
       
-      </button><button class="slide" onclick="switchSrc(this, 'starter.glb') "style="background-image: url('tag-05.png');">    
- 
-        
-    </button></div>
+      <button class="slide" id="tab3" onclick="switchSrc(this, 'junior+.glb') "style="background-image: url('tag-02.png');"></button>
+      
+      <button class="slide" id="tab4" onclick="switchSrc(this, 'starter+.glb') "style="background-image: url('tag-04.png');"></button>
+      
+      <button class="slide" id="tab5" onclick="switchSrc(this, 'starter.glb') "style="background-image: url('tag-05.png');"></button>
+
+    </div>
   </div>
 </model-viewer>
 
@@ -287,13 +331,13 @@
 
   window.switchSrc = (element, name) => {
     const base = " " + name;
-    modelViewer.src = base + '';
-    modelViewer.poster = base + '.jpg';
+    modelViewer.src = base + ' ';
+    modelViewer.poster = base + ' ';
     const slides = document.querySelectorAll(".slide");
     slides.forEach((element) => {element.classList.remove("selected");});
     element.classList.add("selected");
   };
-  
+
   //window.switchios-Src = (element , name)=>  {
   //  const base = " " + name;
   //  modelViewer.ios-src = base +'';
@@ -307,7 +351,91 @@
   });
 </script>
 
+<script type="text/javascript">
 
+tab1.addEventListener('click', function Hidden(){
+  btn3.style.display="none";
+  btn4.style.display="none";
+  btn5.style.display="none";
+  btn6.style.display="none";
+  btn7.style.display="none";
+  btn8.style.display="none";
+  btn9.style.display="none";
+  btn10.style.display="none";
+}, false);
+
+tab1.addEventListener('click', function Show(){
+  btn1.style.display="block";
+  btn2.style.display="block";
+}, false);
+
+tab2.addEventListener('click', function Hidden(){
+  btn1.style.display="none";
+  btn2.style.display="none";
+  btn5.style.display="none";
+  btn6.style.display="none";
+  btn7.style.display="none";
+  btn8.style.display="none";
+  btn9.style.display="none";
+  btn10.style.display="none";
+}, false);
+
+tab2.addEventListener('click', function Show(){
+
+  btn3.style.display="block";
+  btn4.style.display="block";
+}, false);
+
+tab3.addEventListener('click', function Hidden(){
+  btn1.style.display="none";
+  btn2.style.display="none";
+  btn3.style.display="none";
+  btn4.style.display="none";
+  btn7.style.display="none";
+  btn8.style.display="none";
+  btn9.style.display="none";
+  btn10.style.display="none";
+}, false);
+
+tab3.addEventListener('click', function Show(){
+  btn5.style.display="block";
+  btn6.style.display="block";
+}, false);
+
+tab4.addEventListener('click', function Hidden(){
+  btn1.style.display="none";
+  btn2.style.display="none";
+  btn3.style.display="none";
+  btn4.style.display="none";
+  btn5.style.display="none";
+  btn6.style.display="none";
+  btn9.style.display="none";
+  btn10.style.display="none";
+}, false);
+
+tab4.addEventListener('click', function Show(){
+  btn7.style.display="block";
+  btn8.style.display="block";
+}, false);
+
+tab5.addEventListener('click', function Hidden(){
+  btn1.style.display="none";
+  btn2.style.display="none";
+  btn3.style.display="none";
+  btn4.style.display="none";
+  btn5.style.display="none";
+  btn6.style.display="none";
+  btn7.style.display="none";
+  btn8.style.display="none";
+}, false);
+
+tab5.addEventListener('click', function Show(){
+  btn9.style.display="block";
+  btn10.style.display="block";
+}, false);
+
+
+</script>
 
 </body>
 </html>
